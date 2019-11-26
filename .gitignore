@@ -1,0 +1,9 @@
+# virtualenv
+venv
+
+# python files
+*.pyc
+__pycache__
+
+# IDE
+.idea/
