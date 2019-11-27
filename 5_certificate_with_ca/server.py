@@ -10,7 +10,6 @@ def index():
     return 'INDEX PAGE.......'
 
 
-# ssl.wrap_socket
 ssl_context = ssl.create_default_context(purpose=ssl.Purpose.CLIENT_AUTH)
 ssl_context.load_cert_chain(
     certfile='certs/server/certificate.crt',
