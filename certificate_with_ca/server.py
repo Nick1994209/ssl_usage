@@ -10,10 +10,15 @@ def index():
     return 'INDEX PAGE.......'
 
 
+# ssl.wrap_socket
 ssl_context = ssl.create_default_context(purpose=ssl.Purpose.CLIENT_AUTH)
 ssl_context.load_cert_chain(
-    certfile='certs/self_signed_certificate.crt',
-    keyfile='certs/private.key',
+    certfile='certs/server/certificate.crt',
+    keyfile='certs/server/private.key',
 )
+ssl_context.load_verify_locations(
+    cafile='certs/ca/certificate.crt',
+)
+ssl_context.verify_mode = ssl.CERT_REQUIRED
 
 app.run(ssl_context=ssl_context)

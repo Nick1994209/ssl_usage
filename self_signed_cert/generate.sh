@@ -7,7 +7,7 @@ openssl genrsa -out certs/private.key 2048  # по дефолту RSA можно
 
 # 2 создадим самоподписаный сертификат
 openssl req -x509 -new -days 365 \
- -extfile ssl.conf \
+ -subj "/C=RU/ST=Russia/L=Moscow/O=QIWI/CN=localhost" \
  -key certs/private.key -out certs/self_signed_certificate.crt
 
 # прочитать полученный сертификат
